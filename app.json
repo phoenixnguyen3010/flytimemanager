@@ -1,0 +1,7 @@
+{
+    "name": "FlyTimeManagement",
+    "description": "Fly Time Management",
+    "repository": "https://github.com/phoenixnguyen3010/flytimemanager.git",
+    "logo": "https://node-js-sample.herokuapp.com/node.svg",
+    "keywords": ["node", "express", "ionic", "flytime"]
+}

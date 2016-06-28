@@ -1,0 +1,15 @@
+<ion-navbar *navbar primary>
+    <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+    <ion-title>Thêm lịch bay</ion-title>
+</ion-navbar>
+
+<ion-content>
+    <ckeditor [(ngModel)]="ckeditorContent" [config]="{removePlugins: 'toolbar', allowedContent: true}"></ckeditor>
+</ion-content>
+
+<ion-footer-bar class="bar-footer">
+        <button block (click)="saveFlightSchedulesData()"><ion-icon name="ios-add-outline"></ion-icon>Thêm</button>
+        <button block color="Danger" (click)="doConfirm()"><ion-icon name="ios-nuclear-outline"></ion-icon>Xóa nội dung</button>
+</ion-footer-bar>

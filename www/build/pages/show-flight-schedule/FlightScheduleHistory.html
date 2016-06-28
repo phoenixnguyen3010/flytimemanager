@@ -1,0 +1,20 @@
+<ion-navbar *navbar primary>
+    <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+    <ion-title>Lịch sử lịch bay</ion-title>
+</ion-navbar>
+
+<ion-content>
+    <ion-toolbar class="toolbar" primary>
+            <ion-searchbar placeholder="Tìm kiếm theo Ft.No" [(ngModel)]="searchQuery" (ionInput)="getItems($event)"></ion-searchbar>
+    </ion-toolbar>
+    <ion-list>
+        <ion-item *ngFor="let item of flightSchedulesHistoryList" (click)="itemSelected(item)">
+            <ion-icon name="plane" style="color: #55acee"></ion-icon> {{item.flyTimeNo}}
+            <div item-right>{{item.etd_edd | date:'HH:mm dd/MM/yyyy'}}</div>
+
+        </ion-item>
+    </ion-list>
+
+</ion-content>

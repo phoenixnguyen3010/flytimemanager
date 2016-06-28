@@ -1,0 +1,36 @@
+<ion-navbar *navbar primary>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>{{currentDate | date:'dd / MM / yyyy'}}</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="getting-started">
+  <button outline block>Thời gian làm nhiệm vụ bay</button>
+  <div class="row">
+    <div class="col center">
+      <button [className]="buttonDurationFlytimeClass">{{durationOFlightMission}}</button>
+    </div>
+  </div>
+  <button outline block>Thời gian làm nhiệm vụ mặt đất</button>
+  <div class="row">
+    <div class="col center">
+      <button round [className]="buttonTimeGroundFlytimeClass">{{timeGroundMissions}}</button>
+    </div>
+  </div>
+
+  <button outline block>Thời gian nghỉ trong 7 ngày liên tiếp</button>
+  <div class="row">
+    <div class="col center">
+      <button round [className]="buttonTimeRelaxFlytimeClass"> {{timeRelaxSevenDayBefore}}</button>
+    </div>
+  </div>
+  <button clear danger full>{{messageTimeRelax}}</button>
+  <button outline block>Số ngày nghỉ trong tháng</button>
+  <div class="row">
+    <div class="col center">
+      <button round [className]="buttonDayOffFlytimeClass">{{dayOffInMonth}}</button>
+    </div>
+  </div>
+</ion-content>
