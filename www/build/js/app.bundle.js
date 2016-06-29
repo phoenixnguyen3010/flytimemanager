@@ -220,7 +220,7 @@ var HomeFlyTimePage = (function () {
         var _this = this;
         this.flyTimeService.getTimeRelaxSevenDayBefore().then(function (data) {
             _this.zone.run(function () {
-                if (data < 2160) {
+                if (data > 0 && data < 2160) {
                     _this.buttonTimeRelaxFlytimeClass = _this.buttonTimeRelaxFlytimeDangerClass;
                     _this.messageTimeRelax = "Bạn chưa nghỉ đủ 36 giờ trong 7 ngày liên tiếp";
                 }
