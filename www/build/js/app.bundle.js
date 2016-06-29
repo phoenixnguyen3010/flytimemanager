@@ -190,6 +190,7 @@ var HomeFlyTimePage = (function () {
             _this.zone.run(function () {
                 if (data > 9000) {
                     _this.buttonDurationFlytimeClass = _this.buttonDurationFlytimeDangerClass;
+                    _this.messageDurationFlytime = "Thời gian làm nhiệm vụ bay đã quá 150 giờ";
                 }
                 _this.durationOFlightMission = Utilities_1.Utilities.parseMinuteToTimeString(data);
             });
@@ -201,6 +202,7 @@ var HomeFlyTimePage = (function () {
             _this.zone.run(function () {
                 if (data > 6000) {
                     _this.buttonTimeGroundFlytimeClass = _this.buttonTimeGroundFlytimeDangerClass;
+                    _this.messageTimeGroundFlytime = "Thời gian làm nhiệm vụ mặt đất đã quá 100 giờ";
                 }
                 _this.timeGroundMissions = Utilities_1.Utilities.parseMinuteToTimeString(data);
             });
@@ -487,7 +489,7 @@ var BRF = (function () {
         this.dictBRF["REP_SGN"] = 90;
         this.dictBRF["PNH_SGN"] = 90;
         this.dictBRF["HAN_VTE"] = 125;
-        //this.dictBRF["SGN_SGN"] = 90;
+        this.dictBRF["SGN_SGN"] = 90;
     }
     return BRF;
 }());
@@ -609,7 +611,7 @@ var FlyTimeService = (function () {
                 for (var i = 0; i < data.res.rows.length; i++) {
                     var item = data.res.rows.item(i);
                     var duty_dayoff = item['duty_dayoff'].split('-');
-                    var brfKey = Utilities_1.Utilities.format("{0}_{1}", duty_dayoff[0], duty_dayoff[1]);
+                    var brfKey = Utilities_1.Utilities.format("{0}_{1}", duty_dayoff[0], duty_dayoff[1].split(' ')[0]);
                     var brfValue = _this.brf.dictBRF[brfKey];
                     if (brfValue != undefined) {
                         durationOFlightMission += _this.brf.dictBRF[brfKey];
@@ -617,7 +619,7 @@ var FlyTimeService = (function () {
                     else {
                         durationOFlightMission += 90;
                     }
-                    durationOFlightMission += item['ft'];
+                    durationOFlightMission += parseInt(item['ft']);
                     durationOFlightMission += 15;
                 }
             }
@@ -636,7 +638,7 @@ var FlyTimeService = (function () {
                 for (var i = 0; i < data.res.rows.length; i++) {
                     var item_1 = data.res.rows.item(i);
                     var duty_dayoff = item_1['duty_dayoff'].split('-');
-                    var brfKey = Utilities_1.Utilities.format("{0}_{1}", duty_dayoff[0], duty_dayoff[1]);
+                    var brfKey = Utilities_1.Utilities.format("{0}_{1}", duty_dayoff[0], duty_dayoff[1].split(' ')[0]);
                     var brfValue = _this.brf.dictBRF[brfKey];
                     if (brfValue != undefined) {
                         sumBrf += _this.brf.dictBRF[brfKey];
@@ -694,7 +696,7 @@ var FlyTimeService = (function () {
                     //
                     var duty_dayoff = item['duty_dayoff'].split('-');
                     if (duty_dayoff != null) {
-                        var brfKey = Utilities_1.Utilities.format("{0}_{1}", duty_dayoff[0], duty_dayoff[1]);
+                        var brfKey = Utilities_1.Utilities.format("{0}_{1}", duty_dayoff[0], duty_dayoff[1].split(' ')[0]);
                         brfValue.push(_this.brf.dictBRF[brfKey]);
                     }
                 }

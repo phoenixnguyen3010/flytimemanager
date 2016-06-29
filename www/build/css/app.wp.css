@@ -9107,6 +9107,9 @@ body {
 .button-flytime {
   font-size: 24px; }
 
+p {
+  text-align: center; }
+
 .center {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -13,12 +13,15 @@
       <button [className]="buttonDurationFlytimeClass">{{durationOFlightMission}}</button>
     </div>
   </div>
+  <p clear danger full *ngIf="messageDurationFlytime">{{messageDurationFlytime}}</p>
+   
   <button outline block>Thời gian làm nhiệm vụ mặt đất</button>
   <div class="row">
     <div class="col center">
       <button round [className]="buttonTimeGroundFlytimeClass">{{timeGroundMissions}}</button>
     </div>
   </div>
+  <p clear danger full *ngIf="messageTimeGroundFlytime">{{messageTimeGroundFlytime}}</p>
 
   <button outline block>Thời gian nghỉ trong 7 ngày liên tiếp</button>
   <div class="row">
@@ -26,7 +29,8 @@
       <button round [className]="buttonTimeRelaxFlytimeClass"> {{timeRelaxSevenDayBefore}}</button>
     </div>
   </div>
-  <button clear danger full>{{messageTimeRelax}}</button>
+  <p clear danger full *ngIf="messageTimeRelax">{{messageTimeRelax}}</p>
+
   <button outline block>Số ngày nghỉ trong tháng</button>
   <div class="row">
     <div class="col center">
